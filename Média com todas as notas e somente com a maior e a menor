@@ -1,0 +1,59 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() 
+{
+    int numeros(int N1, int N2, int N3, int nmaior1, int nmaior2);
+    int N1, N2, N3, nmaior1, nmaior2, nmenor;
+    
+//atribuindo a primeira nota como a maior
+    printf("nota 1: ");
+    scanf("%d", &N1);
+    nmaior1 = N1;
+    
+    printf("nota 2: ");
+    scanf("%d", &N2);
+    printf("nota 3: ");
+    scanf("%d", &N3);
+    
+//comparando as notas para saber qual é a maior
+    	if (N2 > nmaior1)
+  		    nmaior1=N2;
+  		else if(N3 > nmaior1)
+  		    nmaior1=N3;
+  		    
+ //comparando as notas para saber qual é a menor
+  		if(N1 < N2 && N3)
+  	    	nmenor=N1;
+  		else if(N2 < N1 && N3)
+  		    nmenor=N2;
+  		else if(N3 < N1 && N2)
+  		    nmenor=N3;
+  		    
+//comparando as notas para saber qual é a segunda maior
+  		if(N1 < nmaior1 && N1 > nmenor)
+  		    nmaior2=N1;
+  		else if(N2 < nmaior1 && N2 > nmenor)
+  		    nmaior2=N2;
+  		else if(N3 < nmaior1 && N3 > nmenor)
+  		    nmaior2=N3;
+  		    
+  	printf("A maior nota foi: %d",nmaior1);
+  	printf("\n");
+  	printf("A segunda maior nota foi: %d",nmaior2);
+  	printf("\n");
+  	printf("A menor nota foi: %d",nmenor);
+  	printf("\n");
+    
+    numeros(N1, N2, N3, nmaior1, nmaior2);
+}
+
+//função para calcular a média
+int numeros(int N3, int N4, int N5, int maior1, int maior2)
+{
+    printf("a média total é: %d", (N3+N4+N4)/3);
+  	printf("\n");
+    printf("a média parcial é: %d", (maior1+maior2)/2);
+    
+    return;
+}
