@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() 
+{
+//variaveis para a hota aula e quantidade de aulas
+    int salario(float horaAula, int numeroAula);
+    float horaAula;
+    int numeroAula;
+    
+    printf("Insira o valor da hora aula: ");
+    scanf("%f", &horaAula);
+    
+    printf("Insira o numero de aulas semanais: ");
+    scanf("%d", &numeroAula);
+ 
+    salario(horaAula, numeroAula);
+}
+
+//função para calcular o salario liquido
+int salario(float hAula, int qtdAula)
+{
+    float salario;
+    //calcula o salario bruto
+    salario=hAula*qtdAula*5.25;
+    
+    //condições para aplicar o desconto do INSS
+    if(salario<=1320.00)
+        printf("O salario é: %.2f", salario-7.5);
+        
+    else if(salario>=1320.01 && salario<=2571.29)
+        printf("O salario é: %.2f", salario-9);
+    
+    else if(salario>=2571.30 && salario<=3856.94)
+        printf("O salario é: %.2f", salario-12);
+    
+    else 
+        printf("O salario é: %.2f", salario-14);
+
+    return;
+}
