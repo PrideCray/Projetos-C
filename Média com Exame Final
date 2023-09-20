@@ -1,0 +1,51 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() 
+{
+//variaveis para as notas
+    int numeros(int N1, int N2);
+    int N1, N2;
+    
+//inserindo as notas
+    printf("Insira a primeira nota de 0 a 100: ");
+    scanf("%d", &N1);
+    
+    printf("Insira a segunda nota de 0 a 100: ");
+    scanf("%d", &N2);
+ 
+    numeros(N1, N2);
+}
+
+//função para calcular a média
+int numeros(int N3, int N4)
+{
+    int media, EF;
+    printf("A média é: %d", media=(N3+N4)/2);
+  	printf("\n");
+    
+    if(media>=70)
+        printf("Aluno aprovado");
+    
+    else if(media>=40 && media<=69)
+    {
+        //condições em caso de "Exame Final"
+        printf("Aluno em Exame Final");
+        printf("\n");
+        printf("Insira a nota do Exame: ");
+        scanf("%d", &EF);
+        printf("\n");
+        printf("A média é: %d", media=EF+media);
+        printf("\n");
+
+        if(media>=100)
+            printf("Aluno aprovado");
+        
+        else
+            printf("Aluno reprovado");
+    }
+        
+    else
+        printf("Aluno reprovado");
+    return;
+}
