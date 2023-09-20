@@ -4,7 +4,7 @@
 int main() 
 {
 //variaveis para as notas
-    int numeros(int N1, int N2);
+    int media(int N1, int N2);
     int N1, N2;
     
 //inserindo as notas
@@ -14,11 +14,11 @@ int main()
     printf("Insira a segunda nota de 0 a 100: ");
     scanf("%d", &N2);
  
-    numeros(N1, N2);
+    media(N1, N2);
 }
 
 //função para calcular a média
-int numeros(int N3, int N4)
+int media(int N3, int N4)
 {
     int media, EF;
     printf("A média é: %d", media=(N3+N4)/2);
