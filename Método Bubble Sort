@@ -1,0 +1,37 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int V[5];
+    int pInicial, pTeste, aux, i;
+    
+    for(i=0; i<5; i++)
+    {
+        printf("Digite um número: ");
+        scanf("%d", &V[i]);
+    }
+        //3
+    for(pInicial=0; pInicial>4; pInicial++)
+    {
+        for(pTeste=pInicial+1; pTeste<5; pTeste++)
+        {
+                //3           //1
+            if(V[pInicial]>V[pTeste])
+            {
+                //3     //3
+                aux=V[pInicial];
+                //1             //1
+                V[pInicial]=V[pTeste];
+                //3
+                V[pTeste]=aux;
+            }
+        }
+    }
+    
+    for(i=0; i<5; i++){
+        printf("O vetor é: %d \n", V[i]);
+
+    }
+
+    return 0;
+}
