@@ -1,0 +1,74 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int vetor(int *V);
+    int somaV(int soma);
+    float mediaV(int soma);
+    int ordem(int *V);
+    
+    int V[5];t
+    int i, soma=0;
+
+    for(i=0; i<5; i++)
+    {
+        printf("Digite um número: ");
+        scanf("%d", &V[i]);
+        soma=soma+V[i];
+    }
+    
+    vetor(V);
+    somaV(soma);
+    mediaV(soma);
+    ordem(V);
+    
+    return 0;
+}
+
+int vetor(int *Vet)
+{
+    int pInicial, pTeste, aux, i;
+    for(pInicial=0; pInicial<4; pInicial++)
+    {
+        for(pTeste=pInicial+1; pTeste<5; pTeste++)
+        {
+                //3           //1
+            if(Vet[pInicial]>Vet[pTeste])
+            {
+                //3     //3
+                aux=Vet[pInicial];
+                //1             //1
+                Vet[pInicial]=Vet[pTeste];
+                //3
+                Vet[pTeste]=aux;
+            }
+        }
+    }
+    
+    for (i=0; i<5; i++)
+    {
+      printf("%d\n", Vet[i]);
+    }  
+    return Vet[i];
+}
+
+int somaV(int soma)
+{
+    printf("A soma é: %d\n", soma);
+    
+    return soma;
+}
+
+float mediaV(int soma)
+{
+    float media;
+    printf("A media é: %.1f", media=soma/5);
+    printf("\n");
+}
+
+int ordem(int *Vet)
+{
+    printf("O menor: %d", Vet[0]);
+    printf("\n");
+    printf("O maior: %d", Vet[4]);
+}
