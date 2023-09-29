@@ -1,0 +1,60 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int vet[10], i=0, pi, pt, aux, valor, inicial, final, meio;
+    char achou ='f';
+    
+    for(i=0; i<=9; i++)
+    {
+        printf("Digite o vetor: ");
+        scanf("%d", &vet[i]);
+    }
+    
+    for(pi=0; pi<=9; pi++)
+    {
+        for(pt=pi+1; pt<=9; pt++)
+        {
+            if(vet[pi]>vet[pt])
+            {
+                aux=vet[pi];
+                vet[pi]=vet[pt];
+                vet[pt]=aux;
+            }
+        }
+    }
+    
+    printf("Procure por um número: ");
+    scanf("%d", &valor);
+    
+    inicial=1;
+    final=10;
+    
+    while(inicial<=final && achou=='f')
+    {
+        meio=(inicial+final)/2;
+        if(vet[meio]==valor)
+        {
+            achou='v';
+        }
+        else if(vet[meio]>valor)
+        {
+            final=meio-1;
+        }
+        else
+        {
+            inicial=meio+1;
+        }
+    }
+    
+    if(achou='v')
+    {
+        printf("Valor encontrado na posição: %d", meio);
+    }
+    else
+    {
+        printf("Valor não encontrado");
+    }
+    
+    return 0;
+}
