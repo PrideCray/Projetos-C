@@ -1,0 +1,43 @@
+#include <stdio.h>
+
+int main() {
+    //declarando a matriz
+    int m[3][3];
+    int vet[3];
+    int result[3][3];
+    int i, j, n;
+    
+    
+    //variar as linhas
+    for(i=0; i<=2; i++)
+    {
+        //variar as colunas
+        for(j=0; j<=2;j++)
+        {
+            printf("Digite um número na linha %d e coluna %d\n", i, j);
+            scanf("%d", &m[i][j]);
+        }
+    }
+    
+    for(n=0; n<=2; n++)
+    {
+        printf("Digite os número do vetor\n", n);
+            scanf("%d", &vet[n]);
+    }
+
+    //multiplicar a matriz
+    for(i=0; i<=2; i++)
+    {
+        for(j=0; j<=2;j++)
+        {
+            for(n=0; n<=2; n++)
+            {
+                result[i][j]=m[i][j]*vet[n];
+                printf("%d  ", result[i][j]);
+            }
+        }
+        printf("\n");
+    }
+    
+    return 0;
+}
