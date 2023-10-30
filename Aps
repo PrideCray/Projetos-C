@@ -1,67 +1,143 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <stdbool.h>
 #include <string.h>
 
-int main () {
-    int sorteio();
-    int n = sorteio();
-    char str[15];
-    char letra[15];
-    int ret;
-    int i = 0;
+int main()
+{
+  int sorteio();
 
-    switch(n)
-    {
-        case 0:
-        strcpy(str, "cachorro");  
-        printf("1");
-        break;
-        
-        case 1:
-        strcpy(str, "terra");
-        printf("2");
-        break;
-                
-        case 2:
-        strcpy(str, "chipset");       
-        printf("3");
-        break;
-               
-        case 3:
-        strcpy(str, "uatizapi");
-        printf("4");
-        break;
-                
-        case 4:
-        strcpy(str, "pikomon");   
-        printf("5");
-        break;
-    }
-    printf("Informe uma letra: ");
-    scanf("%s", &letra);
-    
-    ret = strcmp(str, letra);
-    
-    for(i = 0; i<=8; i++)
-    {
-       
+  int n = sorteio();
+  int strcmp(const char *str1, const char *str2);
 
+  int t = 0;
+  int i = 0;
+  int p = 0;
+  int c = 0;
+  int j = 1;
+
+
+  int acertos = 0;
+  bool acertou = false;
+  int chances = 6;
+  char letra[9];
+  char palavraSecreta[9];
+  char palavra[30];
+
+  switch (n)
+  {
+    case 0:
+      palavraSecreta[0] ='c';
+      palavraSecreta[1] ='a';
+      palavraSecreta[2] ='c';
+      palavraSecreta[3] ='h';
+      palavraSecreta[4] ='o';
+      palavraSecreta[5] ='r';
+      palavraSecreta[6] ='r';
+      palavraSecreta[7] ='o';
+
+      t = 8;
+    break;
+    case 1:
+      palavraSecreta[0] ='p';
+      palavraSecreta[1] ='i';
+      palavraSecreta[2] ='k';
+      palavraSecreta[3] ='o';
+      palavraSecreta[4] ='m';
+      palavraSecreta[5] ='o';
+      palavraSecreta[6] ='n';
+      t = 7;
+    break;
+    case 2:
+      palavraSecreta[0] ='u';
+      palavraSecreta[1] ='a';
+      palavraSecreta[2] ='t';
+      palavraSecreta[3] ='i';
+      palavraSecreta[4] ='z';
+      palavraSecreta[5] ='a';
+      palavraSecreta[6] ='p';
+      palavraSecreta[7] ='i';
+      t = 8;
+    break;
+    case 3:
+      palavraSecreta[0] ='t';
+      palavraSecreta[1] ='e';
+      palavraSecreta[2] ='r';
+      palavraSecreta[3] ='r';
+      palavraSecreta[4] ='a';
+      t = 5;
+    break;
+    case 4:
+      palavraSecreta[0] ='c';
+      palavraSecreta[1] ='h';
+      palavraSecreta[2] ='i';
+      palavraSecreta[3] ='p';
+      palavraSecreta[4] ='s';
+      palavraSecreta[5] ='e';
+      palavraSecreta[6] ='t';
+      t = 7;
+    break;
+
+    default:
+    printf("ERRO: Problema na função de sorteio\n ");
+  }
+
+  for(i=0; i<t; i++)
+  {
+    palavra[i] = '_';
+  }
+
+  system("clear");
+  for (i=0; i<t; i++)
+  {
+    printf("Valor do elemento %d da string = %c\n \n ",i, palavraSecreta[i]);
+  }
+  //--------------------------------------------------------------------------------
+  printf("Bem vindo ao jogo da forca\n");
+
+  while(chances > 0 && acertos < t)
+  {
+    for(p = 0; p<=t; p++)
+    {
+      printf("Palavra: ");
+
+      for(i=0; i<t; i++)
+      {
+        printf(" %c ", palavra[i]);
+      }
+      printf("\n");
+      printf("Chances: %d\n", chances);
+
+      printf("Digite uma letra: ");
+      fgets(palavra, i, stdin);
+
+
+      for(c=0; c<j; c++)
+      {
+        if(letra[i] != palavraSecreta[i])
+        {
+          acertou = false;
+          chances--;
+          i--;
+        }
+        else
+        {
+          acertou = true;
+        }
+      }
+      i++;
+      j++;      
     }
-    
-    if(ret < 0) {
-    printf("As letras não coincidem");
-    } else if(ret > 0) {
-    printf("As letras não coincidem");
-    } else {
-    printf("As letras são iguais");
-    }
-    
-    return(0);
+  }
+  return 0;
 }
 
-int sorteio(){
-    srand(time(NULL));
-    int n = rand()%5;
+int sorteio()
+{
+  srand(time(NULL));
+  int n = rand() % 5;
 
-    // n == número escolhido para selecionar a palavra.
-    return n;
+  // n == número escolhido para selecionar a palavra.
+  return n;
 }
