@@ -11,12 +11,10 @@ int main()
   int n = sorteio();
   int strcmp(const char *str1, const char *str2);
 
-  int t = 0;
-  int i = 0;
-  int p = 0;
-  int c = 0;
-  int j = 1;
-
+  int j=0;
+  int t=0;
+  int i=0;
+  int c=0;
 
   int acertos = 0;
   bool acertou = false;
@@ -25,6 +23,7 @@ int main()
   char palavraSecreta[9];
   char palavra[30];
 
+  //switch case para escolher a palavra baseado no número aleatório
   switch (n)
   {
     case 0:
@@ -37,6 +36,7 @@ int main()
       palavraSecreta[6] ='r';
       palavraSecreta[7] ='o';
 
+      //variável para armazenar o tamanho da palavra sorteada
       t = 8;
     break;
     case 1:
@@ -47,6 +47,7 @@ int main()
       palavraSecreta[4] ='m';
       palavraSecreta[5] ='o';
       palavraSecreta[6] ='n';
+      
       t = 7;
     break;
     case 2:
@@ -58,6 +59,7 @@ int main()
       palavraSecreta[5] ='a';
       palavraSecreta[6] ='p';
       palavraSecreta[7] ='i';
+      
       t = 8;
     break;
     case 3:
@@ -66,6 +68,7 @@ int main()
       palavraSecreta[2] ='r';
       palavraSecreta[3] ='r';
       palavraSecreta[4] ='a';
+      
       t = 5;
     break;
     case 4:
@@ -76,6 +79,7 @@ int main()
       palavraSecreta[4] ='s';
       palavraSecreta[5] ='e';
       palavraSecreta[6] ='t';
+      
       t = 7;
     break;
 
@@ -83,56 +87,60 @@ int main()
     printf("ERRO: Problema na função de sorteio\n ");
   }
 
-  for(i=0; i<t; i++)
+  //for para preencher o vetor palavra com tracinhos
+  for(j=0; j<t; j++)
   {
-    palavra[i] = '_';
+    palavra[j] = '_';
   }
 
   system("clear");
-  for (i=0; i<t; i++)
+
+  //placeholder, tem que tirar dps
+  for (c=0; c<t; c++)
   {
-    printf("Valor do elemento %d da string = %c\n \n ",i, palavraSecreta[i]);
+    printf("Valor do elemento %d da string = %c\n \n ",c, palavraSecreta[c]);
   }
   //--------------------------------------------------------------------------------
   printf("Bem vindo ao jogo da forca\n");
 
+  //while para rodar enquanto as chances não acabarem e os acertos forem menor que o tamanho da palavra sorteada
   while(chances > 0 && acertos < t)
   {
-    for(p = 0; p<=t; p++)
+    //loop para imprimir o vetor palavra
+    //pegar a letra que o usuário digitou
+    //validar se bate com a letra da palavra sorteada
+    for(i = 0; i<=t; i++)
     {
       printf("Palavra: ");
 
-      for(i=0; i<t; i++)
+      for(j=0; j<t; j++)
       {
-        printf(" %c ", palavra[i]);
+        printf(" %c ", palavra[j]);
       }
       printf("\n");
       printf("Chances: %d\n", chances);
 
       printf("Digite uma letra: ");
-      fgets(palavra, i, stdin);
+      scanf("%s", &palavra[i]);
 
-
-      for(c=0; c<j; c++)
+      if(palavra[i] != palavraSecreta[i])
       {
-        if(letra[i] != palavraSecreta[i])
-        {
-          acertou = false;
-          chances--;
-          i--;
-        }
-        else
-        {
-          acertou = true;
-        }
+        acertou = false;
+        chances--;
       }
-      i++;
-      j++;      
+      else
+      {
+        acertos++;
+        acertou = true;
+      }
+
+      //fazer outra condição se as chances acabarem para dar game over ou caso ele tenha conseguido
     }
   }
   return 0;
 }
 
+//função para sortear um número de 0 a 4
 int sorteio()
 {
   srand(time(NULL));
