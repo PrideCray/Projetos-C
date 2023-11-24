@@ -1,0 +1,33 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "Portuguese");
+    
+    FILE *arq;
+    FILE *arqSaida;
+    char txt[100];
+    int i=0;
+    
+    arq=fopen("BD.txt", "r");
+
+    arqSaida=fopen("BD2.txt", "r");
+	
+	fgets(txt, 100, arq);
+	
+	while(1<100)
+	{
+		if(txt[i]=='a' || txt[i]=='e' || txt[i]=='i' || txt[i]=='o' || txt[i]=='u')
+		{
+			txt[i]='*';
+		}
+		i++;
+	}
+	fprintf(arqSaida, "%s", txt);
+	printf("arquivo gerado com sucesso!");
+	
+	fclose(arqSaida);
+	fclose(arq);
+    return 0;
+}
