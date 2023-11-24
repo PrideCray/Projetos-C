@@ -1,0 +1,27 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+#include <locale.h>
+
+int main() {
+    setlocale(LC_ALL, "Portuguese");
+    
+    FILE *arq;
+    int valor;
+    
+    arq=fopen("arquivo1.txt", "w");
+    //Modos de abertura
+    //a - adicionar(gravar) informação ao arquivo sem sobreenscrever. Caso não exista um arquivo não exista, ele será criado
+	//r - somente leitura
+	//w - sobreecreve informação e grava novas. Caso não exista um arquivo não exista, ele será criado
+	 
+    
+    for(valor=1; valor<=100; valor++)
+    {
+    	fprintf(arq, "%d - ", valor);
+	}
+	
+	fclose(arq);
+	printf("Arquivo gravado com sucesso!");
+
+    return 0;
+}
