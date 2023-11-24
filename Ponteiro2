@@ -1,0 +1,23 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int *x, valor, y;
+    x=NULL;
+    valor=35;
+    x=&valor;
+    y=*x;
+    //%p mmodificador para ponteiro
+    //& endereço da variavel na memoria
+    //* operador de indireção
+    
+    printf("endereço da variavel comum valor: = %p\n", &valor);
+    printf("lendo o conteudo do ponteiro x: = %p\n", x);
+    printf("endereço da variavel ponteiro: = %p\n", &x);
+    printf(": = %p\n", *x);
+    printf(": = %p\n", y);
+
+
+
+    return 0;
+}
