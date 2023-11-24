@@ -3,23 +3,28 @@
 #include <locale.h>
 
 int main() {
-    setlocale(LC_ALL, "Portuguese");
-    
-    FILE *arq;
-    char cont[100];
-    
+	setlocale(LC_ALL, "Portuguese");
+	
+	FILE *arq;
+	char cont[100];
+	
 	//abrir arquivo no modo leitura	    
-    arq=fopen("arquivo2.txt", "r");
-    
-	fgets(cont, 100, arq);
-	fclose(arq);
+	arq=fopen("arquivo2.txt", "r");
 	
-	//imprimindo o que esta no arquivo	 
-    printf("Salario lido: %s", cont);
-    
-    
+	if(arq==NULL)
+	{
+		printf("Arqivo não encontrado!");
+		return 0;
+	}
+	while(fgets(cont, 100, arq))
+	{
+		fclose(arq);
+		
+		//imprimindo o que esta no arquivo	 
+		printf("Salario lido: %s", cont);
+		
+		printf("Arquivo gravado com sucesso!");
+	}
 	
-	printf("Arquivo gravado com sucesso!");
-
-    return 0;
+	return 0;
 }
