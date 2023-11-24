@@ -1,0 +1,23 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+int main() {
+    int valor;
+    /*ponteiro - variavel especial que armazena o endereço de memória
+    de uma variavel comum*/
+    
+    //declarando ponteiro
+    //tipo *nome
+    int *pont_valor;
+    int y;
+    valor = 40;
+    //operador * de indireção
+    //operador & derreferencia
+    pont_valor = &valor;
+    y=*pont_valor;
+    printf("Pont_valor = %d\n", *pont_valor);
+    printf("y = %p\n", y);
+
+
+    return 0;
+}
